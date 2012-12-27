@@ -153,7 +153,6 @@ public class Ticket {
     
     public List<String> showLongInfo() {
         List<String> ticket = new ArrayList<String>();
-        List<String> output = new ArrayList<String>();
         ticket.add("&6Ticket " + getId() + " Information:");
         ticket.add("&6Priority: &e" + getPriority().name());
         ticket.add("&6Owner: &e" + this.owner);
@@ -163,17 +162,13 @@ public class Ticket {
         ticket.add("&6Message: &e" + this.info);
         ticket.add("&6Created: &e" + getFormattedCreationDate());
         if ((getComments() != null) && (getComments().size() > 0)) {
-            if (getComments().size() == 1) ticket.add("&6" + getComments().size() + " Comment:");
-            else {
-                ticket.add("&6" + getComments().size() + " Comments:");
-            }
-            ticket.addAll(showCommentPage(  ));
+            ticket.add("&6" + getComments().size() + (getComments().size() == 1 ? " Comment:" : " Comments:"));
+            ticket.addAll(showCommentPage());
         } else {
             ticket.add("&6No Comments");
         }
         
-        output.addAll(ticket);
-        return output;
+        return ticket;
     }
     
     public List<String> showCommentPage() {
