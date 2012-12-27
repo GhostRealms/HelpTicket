@@ -47,8 +47,8 @@
         </dependency>
         <dependency>
             <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
-            <version>1.4.5-R0.3</version>
+            <artifactId>bukkit</artifactId>
+            <version>1.4.5-R1.0</version>
         </dependency>
         <dependency>
         <groupId>com.imdeity.deityapi</groupId>
