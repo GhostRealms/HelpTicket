@@ -7,6 +7,7 @@ import com.imdeity.helpticket.HelpTicketLanguageHelper;
 import com.imdeity.helpticket.HelpTicketMain;
 import com.imdeity.helpticket.obj.PlayerSession;
 import com.imdeity.helpticket.obj.Ticket;
+import com.imdeity.helpticket.obj.TicketManager;
 
 public class TicketTpCommand extends DeityCommandReceiver {
     public boolean onConsoleRunCommand(String[] args) {
@@ -14,13 +15,23 @@ public class TicketTpCommand extends DeityCommandReceiver {
     }
     
     public boolean onPlayerRunCommand(Player player, String[] args) {
-        if (PlayerSession.getPlayerSession(player.getName()) == null) {
-            HelpTicketMain.plugin.chat.sendPlayerMessage(player, HelpTicketMain.plugin.language.getNode(HelpTicketLanguageHelper.TICKET_INFO_FAIL_SESSION_INVALID));
-            return true;
+        Ticket ticket = null;
+        if (args.length > 0) {
+            try {
+                ticket = TicketManager.getTicket(Integer.parseInt(args[0]));
+            } catch (NumberFormatException e) {}
         }
-        Ticket ticket = PlayerSession.getPlayerSession(player.getName()).getTicket();
+        
+        if (ticket == null) {
+            if (PlayerSession.getPlayerSession(player.getName()) == null) {
+                HelpTicketMain.plugin.chat.sendPlayerMessage(player, HelpTicketMain.plugin.language.getNode(HelpTicketLanguageHelper.TICKET_INFO_FAIL_SESSION_INVALID));
+                return true;
+            }
+            ticket = PlayerSession.getPlayerSession(player.getName()).getTicket();
+        }
+        
         player.teleport(ticket.getCreationLocation());
-        for (String s : ticket.showLongInfo(1)) {
+        for (String s : ticket.showLongInfo()) {
             HelpTicketMain.plugin.chat.sendPlayerMessageNoHeader(player, s);
         }
         return true;

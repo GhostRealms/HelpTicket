@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.bukkit.entity.Player;
 
-import com.imdeity.deityapi.DeityAPI;
 import com.imdeity.deityapi.api.DeityCommandReceiver;
 import com.imdeity.helpticket.HelpTicketMain;
 import com.imdeity.helpticket.enums.OpenStatusType;
@@ -21,29 +20,15 @@ public class TicketListCommand extends DeityCommandReceiver {
     public boolean onPlayerRunCommand(Player player, String[] args) {
         List<Ticket> tickets = new ArrayList<Ticket>();
         List<String> output = new ArrayList<String>();
-        int page = 1;
+
         OpenStatusType type;
-        if (args.length >= 2) {
+        if (args.length == 1) {
             type = OpenStatusType.getFromString(args[0]);
-            if (type == null) return false;
-            try {
-                page = Integer.parseInt(args[1]);
-            } catch (NumberFormatException e) {
-                page = 1;
-            }
-        } else if (args.length == 1) {
-            type = OpenStatusType.OPEN;
-            try {
-                page = Integer.parseInt(args[0]);
-            } catch (NumberFormatException e) {
-                type = OpenStatusType.getFromString(args[0]);
-                page = 1;
-            }
             if (type == null) return false;
         } else {
             type = OpenStatusType.OPEN;
-            page = 1;
         }
+        
         if (HelpTicketMain.isAdmin(player)) {
             for (Ticket ticket : TicketManager.getAllTicketType(type))
                 tickets.add(ticket);
@@ -65,10 +50,9 @@ public class TicketListCommand extends DeityCommandReceiver {
                 }
             }
         }
-        int numPages = DeityAPI.getAPI().getDataAPI().getPaginationUtils().getNumPages(tmpInfo);
-        page = DeityAPI.getAPI().getDataAPI().getPaginationUtils().getCurrentPage(page, numPages);
-        output.addAll(DeityAPI.getAPI().getDataAPI().getPaginationUtils().paginateInput(tmpInfo, page));
-        HelpTicketMain.plugin.chat.sendPlayerMessageNoHeader(player, "&6" + type.name() + " Tickets [" + page + "/" + numPages + "]:");
+
+        output.addAll(tmpInfo);
+        HelpTicketMain.plugin.chat.sendPlayerMessageNoHeader(player, "&6" + type.name() + " Tickets:");
         for (String s : output) {
             HelpTicketMain.plugin.chat.sendPlayerMessageNoHeader(player, s);
         }

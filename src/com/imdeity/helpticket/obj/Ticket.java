@@ -151,7 +151,7 @@ public class Ticket {
                 + DeityAPI.getAPI().getUtilAPI().getStringUtils().maxLength(this.info, 25);
     }
     
-    public List<String> showLongInfo(int currentPage) {
+    public List<String> showLongInfo() {
         List<String> ticket = new ArrayList<String>();
         List<String> output = new ArrayList<String>();
         ticket.add("&6Ticket " + getId() + " Information:");
@@ -167,19 +167,16 @@ public class Ticket {
             else {
                 ticket.add("&6" + getComments().size() + " Comments:");
             }
-            ticket.addAll(showCommentPage(currentPage));
+            ticket.addAll(showCommentPage(  ));
         } else {
             ticket.add("&6No Comments");
         }
         
-        int numPages = DeityAPI.getAPI().getDataAPI().getPaginationUtils().getNumPages(ticket);
-        output.add("&6+----------[" + currentPage + "/" + numPages + "]----------+");
-        currentPage = DeityAPI.getAPI().getDataAPI().getPaginationUtils().getCurrentPage(currentPage, numPages);
-        output.addAll(DeityAPI.getAPI().getDataAPI().getPaginationUtils().paginateInput(ticket, currentPage));
+        output.addAll(ticket);
         return output;
     }
     
-    public List<String> showCommentPage(int page) {
+    public List<String> showCommentPage() {
         List<String> comments = new ArrayList<String>();
         for (TicketComment tc : getComments()) {
             comments.add("-    " + tc.showInfo());

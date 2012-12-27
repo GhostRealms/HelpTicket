@@ -25,9 +25,9 @@ public class TicketCommandHandler extends DeityCommandHandler {
         String[] priorityAliases = { "pri" };
         registerCommand("list", null, "<OPEN/CLOSED> <page-number>", "Shows all tickets", new TicketListCommand(), "helpticket.general.list");
         registerCommand("create", createAliases, "[message]", "Creates a ticket", new TicketCreateCommand(), "helpticket.general.create");
-        registerCommand("info", null, "<page-number>", "Shows the selected tickets information", new TicketInfoCommand(), "helpticket.general.info");
-        registerCommand("select", selectAliases, "[ticket-id]", "Shows the selected tickets information", new TicketSelectCommand(), "helpticket.general.select");
-        registerCommand("teleport", teleportAliases, "", "Teleports to the selected ticket", new TicketTpCommand(), "helpticket.admin.tp");
+        registerCommand("info", null, "[ticket-id]", "Shows the tickets information", new TicketInfoCommand(), "helpticket.general.info");
+        registerCommand("select", selectAliases, "[ticket-id]", "Select a ticket for fast commands", new TicketSelectCommand(), "helpticket.general.select");
+        registerCommand("teleport", teleportAliases, "[ticket-id]", "Teleports to the a ticket", new TicketTpCommand(), "helpticket.admin.tp");
         registerCommand("comment", commentAliases, "[message]", "Comments on the selected ticket", new TicketCommentCommand(), "helpticket.general.comment");
         registerCommand("close", null, "<message>", "Closes the selected ticket", new TicketCloseCommand(), "helpticket.general.close");
         registerCommand("assign", null, "[staff-name]", "Assigns the selected ticket", new TicketAssignCommand(), "helpticket.admin.assign");

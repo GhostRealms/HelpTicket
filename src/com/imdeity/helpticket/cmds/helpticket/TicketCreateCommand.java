@@ -31,7 +31,7 @@ public class TicketCreateCommand extends DeityCommandReceiver {
         public CreateTicket(Player player, String info) {
             this.player = player;
             this.info = info;
-            HelpTicketMain.plugin.getServer().getScheduler().scheduleAsyncDelayedTask(HelpTicketMain.plugin, this);
+            HelpTicketMain.plugin.getServer().getScheduler().runTaskAsynchronously(HelpTicketMain.plugin, this);
         }
         
         public void run() {
