@@ -7,13 +7,13 @@
     <repositories>
         <repository>
             <id>cna-public-repos</id>
-            <url>http://cube-nation.de:8081/nexus/content/groups/public/</url>
+            <url>http://nexus.cube-nation.de/content/groups/public/</url>
         </repository>
     </repositories>
     <distributionManagement>
         <repository>
             <id>cna-thirdparty</id>
-            <url>http://cube-nation.de:8081/nexus/content/repositories/thirdparty</url>
+            <url>http://nexus.cube-nation.de/content/repositories/thirdparty</url>
         </repository>
     </distributionManagement>
     <build>
