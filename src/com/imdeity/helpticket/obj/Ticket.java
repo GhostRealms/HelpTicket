@@ -147,7 +147,7 @@ public class Ticket {
     }
     
     public String showShortInfo() {
-        return "&7[&7" + getId() + "&7] [" + getPriority().name() + "] [" + this.comments.size() + "] " + ((getPlayerOwner() != null) && (getPlayerOwner().isOnline()) ? "&a" : "&f") + this.owner + (this.assignee != null ? "&6 -> &e" + this.assignee : "") + "&7: &f"
+        return "&7[&7" + getId() + "&7] [" + getPriority().name() + "] [" + (this.hasUpdated ? "&6" : "&7") + this.comments.size() + "&7] " + ((getPlayerOwner() != null) && (getPlayerOwner().isOnline()) ? "&a" : "&f") + this.owner + (this.assignee != null ? "&6 -> &e" + this.assignee : "") + "&7: &f"
                 + DeityAPI.getAPI().getUtilAPI().getStringUtils().maxLength(this.info, 20);
     }
     
