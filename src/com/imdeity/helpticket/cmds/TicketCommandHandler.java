@@ -7,6 +7,8 @@ import com.imdeity.helpticket.cmds.helpticket.TicketCommentCommand;
 import com.imdeity.helpticket.cmds.helpticket.TicketCreateCommand;
 import com.imdeity.helpticket.cmds.helpticket.TicketInfoCommand;
 import com.imdeity.helpticket.cmds.helpticket.TicketListCommand;
+import com.imdeity.helpticket.cmds.helpticket.TicketNextCommand;
+import com.imdeity.helpticket.cmds.helpticket.TicketPrevCommand;
 import com.imdeity.helpticket.cmds.helpticket.TicketPriorityCommand;
 import com.imdeity.helpticket.cmds.helpticket.TicketPurgeCommand;
 import com.imdeity.helpticket.cmds.helpticket.TicketSelectCommand;
@@ -27,6 +29,8 @@ public class TicketCommandHandler extends DeityCommandHandler {
         registerCommand("create", createAliases, "[message]", "Creates a ticket", new TicketCreateCommand(), "helpticket.general.create");
         registerCommand("info", null, "[ticket-id]", "Shows the tickets information", new TicketInfoCommand(), "helpticket.general.info");
         registerCommand("select", selectAliases, "[ticket-id]", "Select a ticket for fast commands", new TicketSelectCommand(), "helpticket.general.select");
+        registerCommand("next", null, "", "Select next ticket for fast commands", new TicketNextCommand(), "helpticket.general.select");
+        registerCommand("prev", null, "", "Select previous ticket for fast commands", new TicketPrevCommand(), "helpticket.general.select");
         registerCommand("teleport", teleportAliases, "[ticket-id]", "Teleports to the a ticket", new TicketTpCommand(), "helpticket.admin.tp");
         registerCommand("comment", commentAliases, "[message]", "Comments on the selected ticket", new TicketCommentCommand(), "helpticket.general.comment");
         registerCommand("close", null, "<message>", "Closes the selected ticket", new TicketCloseCommand(), "helpticket.general.close");
