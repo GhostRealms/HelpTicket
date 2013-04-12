@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.imdeity.helpticket</groupId>
   <artifactId>HelpTicket</artifactId>
-  <version>13.02.06</version>
+  <version>13.04.12</version>
   <name>HelpTicket</name>
     <repositories>
         <repository>
