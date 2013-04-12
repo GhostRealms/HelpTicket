@@ -1,6 +1,5 @@
 package com.imdeity.helpticket;
 
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 
 import org.bukkit.entity.Player;

@@ -13,7 +13,7 @@ import com.imdeity.helpticket.enums.OpenStatusType;
 import com.imdeity.helpticket.enums.PriorityType;
 import com.imdeity.helpticket.enums.ReadStatusType;
 
-public class Ticket {
+public class Ticket implements Comparable<Ticket> {
     private int id;
     private String owner;
     private TicketLocation location;
@@ -200,4 +200,9 @@ public class Ticket {
         String sql = "DELETE FROM " + HelpTicketMain.getTicketsTableName() + " WHERE id = ?;";
         DeityAPI.getAPI().getDataAPI().getMySQL().write(sql, id);
     }
+
+    public int compareTo(Ticket otherTicket) {
+        return Integer.compare(this.id, otherTicket.id);
+    }
+
 }
