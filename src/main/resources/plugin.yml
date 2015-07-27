@@ -1,9 +1,10 @@
 name: HelpTicket
-main: com.imdeity.helpticket.HelpTicketMain
+main: net.ghostrealms.helpticket.HelpTicketMain
 version: 13.02.06
-authors: [vanZeben, ImDeity]
+author: Ghost Realms Network
+authors: [Rmarmorstein, vanZeben]
 description: This plugin is used for players to log problems, requests and complaints.
-website: http://dev.bukkit.org/server-mods/helpticket
+website: http://GhostRealms.net
 depend: [DeityAPI]
 commands:
   Ticket:
