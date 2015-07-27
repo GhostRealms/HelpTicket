@@ -5,55 +5,41 @@
   <version>13.04.12</version>
   <name>HelpTicket</name>
     <repositories>
-        <repository>
-            <id>cna-public-repos</id>
-            <url>http://nexus.cube-nation.de/content/groups/public/</url>
-        </repository>
+      <repository>
+        <id>spigotmc</id>
+        <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+      </repository>
+      <repository>
+        <id>Ghost Realms Repo</id>
+        <url>http://ci.riveris.sexy/plugin/repository/everything/</url>
+      </repository>
     </repositories>
-    <distributionManagement>
-        <repository>
-            <id>cna-thirdparty</id>
-            <url>http://nexus.cube-nation.de/content/repositories/thirdparty</url>
-        </repository>
-    </distributionManagement>
-    <build>
-    <sourceDirectory>src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source/>
-          <target/>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-      <dependencies>
-        <dependency>
-            <groupId>org.avaje</groupId>
-            <artifactId>ebean</artifactId>
-            <version>2.7.3</version>
-            <type>jar</type>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-            <version>1.5-R0.0.1</version>
-        </dependency>
-        <dependency>
-        	<groupId>com.imdeity.deityapi</groupId>
-            <artifactId>DeityAPI</artifactId>
-            <version>13.02.06</version>
-        </dependency>
+    
+    
+    <dependencies>
+      <dependency>
+        <groupId>org.spigotmc</groupId>
+        <artifactId>spigot-api</artifactId>
+        <version>1.8.7-R0.1-SNAPSHOT</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.bukkit</groupId>
+        <artifactId>bukkit</artifactId>
+        <version>1.8.7-R0.1-SNAPSHOT</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.avaje</groupId>
+        <artifactId>ebean</artifactId>
+        <version>2.7.3</version>
+        <type>jar</type>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.imdeity.deityapi</groupId>
+        <artifactId>DeityAPI</artifactId>
+        <version>13.03.22</version>
+      </dependency>
     </dependencies>
 </project>
