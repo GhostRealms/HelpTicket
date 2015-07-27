@@ -1,8 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.imdeity.helpticket</groupId>
   <artifactId>HelpTicket</artifactId>
-  <version>13.04.12</version>
+  <version>15.07.27</version>
+  
   <name>HelpTicket</name>
     <repositories>
       <repository>
