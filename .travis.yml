@@ -1,10 +1,1 @@
 language: java
-env:
-  global:
-    - SONATYPE_THIRDPARTY_SERVER=cna-thirdparty
-    - SONATYPE_USERNAME=deployment
-    - secure: "KTNVYyqcnP4+CUeGERCvSRQgvQutPBoMHnwuVC8RBLUAwaTwt9mt1OKjDT80\nXD3/1/jhnCi/NDYcweJoN+JBz6PNSr8R09VirPETDS9evGPlbRuWHjQzPsOM\nvloZTkGc1OABTvVJkbMcsv2JqFnugHt07wgvzMFXRyyzj2yV8qY="
-    
-after_script:
-  - python .mvnSettings.py
-  - mvn clean deploy --settings ~/.m2/mySettings.xml
